@@ -48,12 +48,26 @@ State evolution of the above simulation example:
 
 ## Getting Started
 
-Environment Configuration:
-- `python3.6+` is required.
-- To generate the animation, you system must install `FFmpeg`. If you haven't done so, please go to https://ffmpeg.org/, download and install `FFmpeg` in your operating system. You need to add the path to the bin folder to system's path variable.
-- You need to install the packages specified in `requirements.txt` file. You can either use `pip install -r requirements.txt` to automatically install all the required packages or install them manually one by one.
+### Environment Configuration:
+- `python3.6+` is required. With anaconda prompt:
+  ```
+  conda create -n vpi-crossing python=3.6.13 
+  conda activate vpi-crossing
+  ```
+- To generate the animation, you system must install `FFmpeg`. If you haven't done so, please go to https://ffmpeg.org/, download and install `FFmpeg` in your operating system. You need to add the path to the bin folder to *system's path variable*.
+- You need to install the packages specified in `requirements.txt` file. If you are using conda,
 
-Running the program:
+```
+conda env update --file conda-requirements.yaml --prune
+```
+
+If you are using PIP (not recommended):
+```
+pip install -r requirements.txt
+```
+
+
+### Running the program:
 - `simulate.py`: run this script to start a simulation.
   - Before running, in `if __name__ == '__main__':` section, change the configuration:
     - Control Method: you can select from different vehicle control method by specifying `control_method` variable. `mpc` is model predictive control, `oac` is obstacle avoidance control, and `vkc` is velocity keep control. (Details of control strategy see the associated paper.)
